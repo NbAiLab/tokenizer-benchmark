@@ -6,9 +6,9 @@ This script creates a corpus for Wikipedia articles for languages including Engl
 
 To create the corpus files, run the command below:
 ```bash
-for lang in en no nn da is sv; do python sample_wikipedia.py --language $lang --output_file wikipedia_100k/wiki_$lang.text --num_articles 500 --num_words 200;done
-for lang in en no nn da is sv; do python sample_wikipedia.py --language $lang --output_file wikipedia_10k/wiki_$lang.text --num_articles 500 --num_words 20;done
-for lang in en no nn da is sv; do python sample_wikipedia.py --language $lang --output_file wikipedia_1k/wiki_$lang.text --num_articles 50 --num_words 20;done
+for lang in en no nn da is sv; do python sample_wikipedia.py --language $lang --output_file wikipedia_100k/wiki_$lang.txt --num_articles 500 --num_words 200;done
+for lang in en no nn da is sv; do python sample_wikipedia.py --language $lang --output_file wikipedia_10k/wiki_$lang.txt --num_articles 500 --num_words 20;done
+for lang in en no nn da is sv; do python sample_wikipedia.py --language $lang --output_file wikipedia_1k/wiki_$lang.txt --num_articles 50 --num_words 20;done
 ```
 
 

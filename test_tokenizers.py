@@ -25,7 +25,7 @@ def test_tokenizer_string(tokenizer, test_string):
 
 def calculate_efficiency(tokenizer, directory, tokenizer_name):
     file_paths = glob.glob(os.path.join(directory, '*.txt'))
-
+    breakpoint()
     for file_path in file_paths:
         with open(file_path, 'r', encoding='utf-8') as file:
             text = file.read()
