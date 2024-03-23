@@ -73,32 +73,43 @@ def main(args):
     df = pd.DataFrame(rows)
     df['efficiency'] = pd.to_numeric(df['efficiency'], errors='coerce')
 
+    # Apply thousand separators and one digit precision formatting
+    df['vocab_size'] = df['vocab_size'].apply(lambda x: f"{x:,}")
+    language_columns = ['da', 'en', 'is', 'nn', 'no', 'sv']
+    for col in language_columns:
+        if col in df:
+            df[col] = df[col].round(1)
+
     # Define a function to format efficiency values
     def format_efficiency(value):
         if pd.isnull(value):
             return None
         return f"{value:.1f}%"
-
     # Group by tokenizer and filter for those where all tests are "Success"
     success_tokenizers = df.groupby('tokenizer').filter(lambda x: all(x[['scand_test', 'nordic_test', 'eng_test']].eq('Success').all(axis=1)))
 
     if not success_tokenizers.empty:
         # Pivot to have languages as columns, ensuring 'tokenizer' remains as an index to join on
         success_summary = success_tokenizers.pivot_table(index='tokenizer', columns='language', values='efficiency', aggfunc='first')
-        
+
         # Calculate the average efficiency
         success_summary['Average Efficiency'] = success_summary.mean(axis=1, skipna=True)
-        
+
         # Join vocab_size info back to success_summary
         vocab_sizes = success_tokenizers[['tokenizer', 'vocab_size']].drop_duplicates().set_index('tokenizer')
         success_summary = success_summary.join(vocab_sizes, how='left')
 
+        # Apply formatting to ensure one decimal place for efficiency columns
+        language_columns = [col for col in success_summary.columns if col not in ['tokenizer', 'vocab_size', 'Average Efficiency']]
+        for col in language_columns:
+            success_summary[col] = success_summary[col].apply(lambda x: "{:.1f}".format(float(x)) if pd.notnull(x) else x)
+        
         # Format 'Average Efficiency' column
-        success_summary['Average Efficiency'] = success_summary['Average Efficiency'].apply(format_efficiency)
+        success_summary['Average Efficiency'] = success_summary['Average Efficiency'].apply(lambda x: "{:.1f}%".format(x) if pd.notnull(x) else x)
 
         # Reset index to make 'tokenizer' a column
         success_summary.reset_index(inplace=True)
-        
+
         # Reorder columns to include 'vocab_size' as the second column and 'Average Efficiency' at the end
         cols = ['tokenizer', 'vocab_size'] + [col for col in success_summary.columns if col not in ['tokenizer', 'vocab_size', 'Average Efficiency']] + ['Average Efficiency']
         success_summary = success_summary[cols]
