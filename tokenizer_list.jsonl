@@ -1,0 +1,14 @@
+{"name": "BertTokenizer", "description": "tokenizer used for the BERT language model. It uses a WordPiece-based tokenization approach.", "url": "bert-base-uncased"}
+{"name": "GPT2Tokenizer", "description": "tokenizer used for the GPT-2 language model. It uses a modified version of the Byte-Pair Encoding (BPE) algorithm.", "url": "gpt2"}
+{"name": "RobertaTokenizer", "description": "tokenizer used for the RoBERTa language model. It is a variant of the BERT tokenizer, with some additional preprocessing steps.", "url": "roberta-base"}
+{"name": "DistilBertTokenizer", "description": "tokenizer used for the DistilBERT language model, which is a smaller and more efficient version of BERT. It is the same as the BertTokenizer.", "url": "distilbert-base-uncased"}
+{"name": "XLNetTokenizer", "description": "tokenizer used for the XLNet language model. It is based on a modified version of the TransformerXL tokenizer.", "url": "xlnet-base-cased"}
+{"name": "T5Tokenizer", "description": "tokenizer used for the T5 language model. It is based on the SentencePiece tokenization algorithm.", "url": "t5-base"}
+{"name": "GPT-JTokenizer", "description": "tokenizer used for the GPT-J language model, which is a variant of the GPT-2 model. This tokenizer is from the EleutherAI implementation.", "url": "EleutherAI/gpt-j-6b"}
+{"name": "LayoutLMTokenizer", "description": "a specialized tokenizer used for the LayoutLM language model, which is designed for document understanding tasks. It is the same as the BertTokenizer.", "url": "microsoft/layoutlm-base-uncased"}
+{"name": "MBartTokenizer", "description": "the tokenizer used for the MBart language model, which is a multilingual version of the BART model.", "url": "facebook/mbart-large-en-ro"}
+{"name": "mBERTTokenizer", "description": "the tokenizer used for the multilingual BERT (mBERT) language model, which can handle a wide range of languages.", "url": "bert-base-multilingual-uncased"}
+{"name": "mT5Tokenizer", "description": "the tokenizer used for the multilingual T5 (mT5) language model, which is a multilingual version of the T5 model.", "url": "google/mt5-small"}
+{"name": "KBLaMegatronTokenizer", "description": "the tokenizer used for KBLab Megatron Large", "url": "KBLab/megatron.bert-large.unigram-64k-pretok.500k-steps"}
+{"name": "KBLabBERTTokenizer", "description": "the tokenizer used for KBLab BERT", "url": "KBLab/bert-base-swedish-cased"}
+{"name": "NB-BERTTokenizer", "description": "the tokenizer used for NB-BERT.", "url": "NbAiLab/nb-bert-large"}
