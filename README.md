@@ -4,7 +4,7 @@ This repo provides tools for evaluating the efficiency of various tokenizers for
 ## Nordic Tokenizers
 | tokenizer             | vocab_size   |   da |   en |   nn |   no |   sv | Average Efficiency   |
 |:----------------------|:-------------|-----:|-----:|-----:|-----:|-----:|:---------------------|
-| MBartTokenizer        | 250,027      | 67.7 | 75   | 63.4 | 67.9 | 65.8 | 68.0%                |
+| MBartTokenizer        | 250,027      | 67.7 | 75.0   | 63.4 | 67.9 | 65.8 | 68.0%                |
 | mT5Tokenizer          | 250,100      | 60.6 | 69.8 | 58.9 | 61.0 | 58.2 | 61.7%                |
 | GPT2Tokenizer         | 50,257       | 50.0  | 89.6 | 48.4 | 50.0 | 46.0 | 56.8%                |
 | GPT-JTokenizer        | 50,257       | 50.0 | 89.6 | 48.4 | 50.0 | 46.0 | 56.8%                |
