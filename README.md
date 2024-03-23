@@ -1,5 +1,5 @@
 # Benchmark for Nordic Language Tokenizers
-Will be supporting no, nn, sv, da and is, in addition to en for reference. Coming soon.
+When ready the benchmark will be supporting Swedish, Danish, Norwegian Bokmål, Norwegian Nynorsk and Icelandic. For reference, it will also support English. 
 
 ## sample_wikipedia.py
 This script creates a corpus for Wikipedia articles for languages including English, Norwegian Bokmål, Norwegian Nynorsk, Danish, Swedish and Icelandic. It is a tool for creating the tokenization benchmark. It extracts the first 200 words from each article on a specified date. Articles shorter than 200 words are dropped. It samples until it has reached 100k words.
