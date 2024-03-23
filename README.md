@@ -12,8 +12,9 @@ This repo provides tools for evaluating the efficiency of various tokenizers for
 | KBLaMegatronTokenizer | 64,005       | 45.8 | 52.2 | 45.6 | 45.6 | 61.2 | 50.1%                |
 
 
-### Not Fully Working Nordic Tokenizers (inkl lowercase-only)
 
+
+### Not Fully Working Nordic Tokenizers (inkl lowercase-only)
 | tokenizer           | vocab_size   | scand_test   | nordic_test   | eng_test   | Average Efficiency   |
 |:--------------------|:-------------|:-------------|:--------------|:-----------|:---------------------|
 | NB-BERTTokenizer    | 50,000       | Lowercase    | Failed        | Lowercase  | 86.0%                |
