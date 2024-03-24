@@ -3,7 +3,7 @@ This repo provides tools for evaluating the efficiency of various tokenizers for
 
 ### Nordic Tokenizers
 
-| tokenizer               | vocab_size   | da    | en    | is    | nn    | no    | sv    | Average Efficiency   |
+| tokenizer               | size   | da    | en    | is    | nn    | no    | sv    | Average Efficiency   |
 |:------------------------|:-------------|:------|:------|:------|:------|:------|:------|:---------------------|
 | MBartTokenizer          | 250,027      | 67.7% | 75.0% | 56.4% | 63.4% | 67.9% | 65.8% | 66.0%                |
 | GemmaTokenizer          | 256,000      | 61.4% | 81.4% | 42.4% | 61.0% | 61.1% | 60.4% | 61.3%                |
@@ -20,7 +20,7 @@ This repo provides tools for evaluating the efficiency of various tokenizers for
 
 ### Not Fully Supported Tokenizers
 
-| tokenizer           | vocab_size   | scand_test   | nordic_test   | eng_test   | Average Efficiency   |
+| tokenizer           | size   | scand_test   | nordic_test   | eng_test   | Average Efficiency   |
 |:--------------------|:-------------|:-------------|:--------------|:-----------|:---------------------|
 | NB-BERTTokenizer    | 50,000       | Lowercase    | Failed        | Lowercase  | 86.0%                |
 | LTG-norT5Tokenizer  | 50,000       | Failed       | Failed        | Failed     | 82.5%                |
