@@ -1,20 +1,20 @@
-{"name": "Bert", "description": "Tokenizer for the BERT language model, using WordPiece tokenization.", "url": "bert-base-uncased"}
-{"name": "GPT2", "description": "Tokenizer for the GPT-2 language model, using a modified Byte-Pair Encoding (BPE) algorithm.", "url": "gpt2"}
-{"name": "Roberta", "description": "Tokenizer for the RoBERTa language model, a variant of the BERT tokenizer with additional preprocessing.", "url": "roberta-base"}
-{"name": "DistilBert", "description": "Tokenizer for the DistilBERT language model, which is a smaller version of BERT and uses the same tokenizer.", "url": "distilbert-base-uncased"}
-{"name": "XLNet", "description": "Tokenizer for the XLNet language model, based on a modified TransformerXL tokenizer.", "url": "xlnet-base-cased"}
-{"name": "T5", "description": "Tokenizer for the T5 language model, based on the SentencePiece algorithm.", "url": "t5-base"}
-{"name": "GPT-J", "description": "Tokenizer for the GPT-J language model, a variant of GPT-2, from the EleutherAI implementation.", "url": "EleutherAI/gpt-j-6b"}
-{"name": "LayoutLM", "description": "Specialized tokenizer for the LayoutLM model, designed for document understanding tasks, same as BertTokenizer.", "url": "microsoft/layoutlm-base-uncased"}
-{"name": "MBart", "description": "Tokenizer for the multilingual BART (MBart) language model.", "url": "facebook/mbart-large-en-ro"}
-{"name": "mBERT", "description": "Tokenizer for the multilingual BERT (mBERT) language model, which supports a wide range of languages.", "url": "bert-base-multilingual-uncased"}
-{"name": "mT5", "description": "Tokenizer for the multilingual T5 (mT5) language model, a multilingual version of T5.", "url": "google/mt5-small"}
-{"name": "KBLab-Megatron", "description": "Tokenizer for the KBLab Megatron Large language model.", "url": "KBLab/megatron.bert-large.unigram-64k-pretok.500k-steps"}
-{"name": "KBLab-BERT", "description": "Tokenizer for the KBLab BERT language model.", "url": "KBLab/bert-base-swedish-cased"}
-{"name": "NB-BERT", "description": "Tokenizer for the NB-BERT language model.", "url": "NbAiLab/nb-bert-large"}
-{"name": "Mistral", "description": "Tokenizer for the Mistral language model.", "url": "mistralai/Mistral-7B-Instruct-v0.2"}
-{"name": "Gemma", "description": "Tokenizer for the Gemma language model.", "url": "google/gemma-7b"}
-{"name": "Llama", "description": "Tokenizer for the Llama language model.", "url": "meta-llama/Llama-2-7b-hf"}
-{"name": "norT5", "description": "Tokenizer for the LTG NorT5 language model.", "url": "ltg/nort5-base"}
-{"name": "norMistral", "description": "Tokenizer for the LTG NorMistral language model.", "url": "norallm/normistral-7b-scratch"}
-{"name": "NB-GPT-J", "description": "Tokenizer for the NB GPT-J language model.", "url": "NbAiLab/nb-gpt-j-6B-v2"}
+{"name": "Bert", "type": "WordPiece", "url": "bert-base-uncased"}
+{"name": "GPT2", "type": "BPE", "url": "gpt2"}
+{"name": "Roberta", "type": "BPE", "url": "roberta-base"}
+{"name": "DistilBert", "type": "WordPiece", "url": "distilbert-base-uncased"}
+{"name": "XLNet", "type": "SentencePiece", "url": "xlnet-base-cased"}
+{"name": "T5", "type": "SentencePiece", "url": "t5-base"}
+{"name": "GPT-J", "type": "BPE", "url": "EleutherAI/gpt-j-6b"}
+{"name": "LayoutLM", "type": "WordPiece", "url": "microsoft/layoutlm-base-uncased"}
+{"name": "MBart", "type": "SentencePiece", "url": "facebook/mbart-large-en-ro"}
+{"name": "mBERT", "type": "WordPiece", "url": "bert-base-multilingual-uncased"}
+{"name": "mT5", "type": "SentencePiece", "url": "google/mt5-small"}
+{"name": "KBLab-Megatron", "type": "WordPiece", "url": "KBLab/megatron.bert-large.unigram-64k-pretok.500k-steps"}
+{"name": "KBLab-BERT", "type": "WordPiece", "url": "KBLab/bert-base-swedish-cased"}
+{"name": "NB-BERT", "type": "WordPiece", "url": "NbAiLab/nb-bert-large"}
+{"name": "Mistral", "type": "BPE", "url": "mistralai/Mistral-7B-Instruct-v0.2"}
+{"name": "Gemma", "type": "SentencePiece", "url": "google/gemma-7b"}
+{"name": "Llama", "type": "BPE", "url": "meta-llama/Llama-2-7b-hf"}
+{"name": "norT5", "type": "SentencePiece", "url": "ltg/nort5-base"}
+{"name": "norMistral", "type": "BPE", "url": "norallm/normistral-7b-scratch"}
+{"name": "NB-GPT-J", "type": "BPE", "url": "NbAiLab/nb-gpt-j-6B-v2"}

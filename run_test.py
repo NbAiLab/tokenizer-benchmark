@@ -41,6 +41,7 @@ def calculate_efficiency(tokenizer, directory):
             })
     return results
 
+
 def main(args):
     rows = []
     try:
@@ -57,6 +58,7 @@ def main(args):
                 for result in file_efficiency_results:
                     rows.append({
                         'tokenizer': f"[{tokenizer_info['name']}](https://hf.co/{tokenizer_info['url']})",  # Adjusted to Markdown link format
+                        'type': tokenizer_info['type'],
                         'vocab_size': vocab_size,
                         'scand_test': scand_result,
                         'nordic_test': nordic_result,
@@ -93,12 +95,12 @@ def main(args):
         # Calculate the average efficiency
         success_summary['Average Efficiency'] = success_summary.mean(axis=1, skipna=True)
 
-        # Join vocab_size info back to success_summary
-        vocab_sizes = success_tokenizers[['tokenizer', 'vocab_size']].drop_duplicates().set_index('tokenizer')
-        success_summary = success_summary.join(vocab_sizes, how='left')
-        
+        # Join vocab_size AND type info back to success_summary
+        additional_info = success_tokenizers[['tokenizer', 'type', 'vocab_size']].drop_duplicates().set_index('tokenizer')
+        success_summary = success_summary.join(additional_info, how='left')
+
         # Apply formatting to ensure one decimal place for efficiency columns
-        language_columns = [col for col in success_summary.columns if col not in ['tokenizer', 'vocab_size', 'Average Efficiency']]
+        language_columns = [col for col in success_summary.columns if col not in ['tokenizer', 'type','vocab_size', 'Average Efficiency']]
         for col in language_columns:
             success_summary[col] = success_summary[col].apply(lambda x: f"{int(float(x))}" if pd.notnull(x) else x)
 
@@ -110,7 +112,7 @@ def main(args):
         success_summary.reset_index(inplace=True)
 
         # Reorder columns to include 'vocab_size' as the second column and 'Average Efficiency' at the end
-        cols = ['tokenizer', 'vocab_size'] + [col for col in success_summary.columns if col not in ['tokenizer', 'vocab_size', 'Average Efficiency']] + ['Average Efficiency']
+        cols = ['tokenizer', 'type', 'vocab_size'] + [col for col in success_summary.columns if col not in ['tokenizer', 'type', 'vocab_size', 'Average Efficiency']] + ['Average Efficiency']
         success_summary = success_summary[cols]
 
         # Sorting by 'Average Efficiency' after converting to numeric for sorting
@@ -126,6 +128,7 @@ def main(args):
 
     if not failed_tokenizers.empty:
         failed_summary = failed_tokenizers.groupby('tokenizer').agg({
+            'type': 'first',
             'vocab_size': 'first',
             'efficiency': 'first', 
             'scand_test': 'first', 
@@ -139,7 +142,7 @@ def main(args):
         failed_summary = failed_summary.rename(columns={'efficiency': 'Average Efficiency'})
 
         # Ensure 'vocab_size' and 'Average Efficiency' are correctly placed
-        cols = ['tokenizer', 'vocab_size', 'scand_test', 'nordic_test', 'eng_test', 'Average Efficiency']
+        cols = ['tokenizer', 'type','vocab_size', 'scand_test', 'nordic_test', 'eng_test', 'Average Efficiency']
         failed_summary = failed_summary[cols]
         failed_summary = failed_summary.sort_values(by='Average Efficiency', ascending=False)
 
