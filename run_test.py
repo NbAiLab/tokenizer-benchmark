@@ -18,7 +18,7 @@ def test_tokenizer_string(tokenizer, test_string):
     exact_match = test_string == decoded_string
     lowercase_match = test_string.lower() == decoded_string.lower()
 
-    return "Success" if exact_match else ("Lowercase" if lowercase_match else "Failed")
+    return "Success" if exact_match else ("OK (lower)" if lowercase_match else "Failed")
 
 def calculate_efficiency(tokenizer, directory):
     results = []
@@ -75,19 +75,13 @@ def main(args):
 
     # Apply thousand separators and one digit precision formatting
     df['vocab_size'] = df['vocab_size'].apply(lambda x: f"{x:,}")
-    language_columns = ['da', 'en', 'is', 'nn', 'no', 'sv']
+    language_columns = ['da', 'en', 'nn', 'no', 'sv']
 
     # Define a function to format efficiency values
     def format_efficiency(value):
         if pd.isnull(value):
             return None
         return f"{value:.1f}%"
-
-    def format_float_with_precision(value):
-        """Format float to one decimal place."""
-        if pd.isnull(value):
-            return None
-        return f"{value:.1f}"
 
     # Group by tokenizer and filter for those where all tests are "Success"
     success_tokenizers = df.groupby('tokenizer').filter(lambda x: all(x[['scand_test', 'nordic_test', 'eng_test']].eq('Success').all(axis=1)))
@@ -106,8 +100,8 @@ def main(args):
         # Apply formatting to ensure one decimal place for efficiency columns
         language_columns = [col for col in success_summary.columns if col not in ['tokenizer', 'vocab_size', 'Average Efficiency']]
         for col in language_columns:
-            success_summary[col] = success_summary[col].apply(lambda x: "{:.1f}%".format(float(x)) if pd.notnull(x) else x)
-            
+            success_summary[col] = success_summary[col].apply(lambda x: f"{int(float(x))}" if pd.notnull(x) else x)
+
 
         # Format 'Average Efficiency' column
         success_summary['Average Efficiency'] = success_summary['Average Efficiency'].apply(lambda x: "{:.1f}%".format(x) if pd.notnull(x) else x)
