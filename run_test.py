@@ -56,7 +56,7 @@ def main(args):
                 file_efficiency_results = calculate_efficiency(tokenizer, args.directory)
                 for result in file_efficiency_results:
                     rows.append({
-                        'tokenizer': tokenizer_info["name"],
+                        'tokenizer': f"[{tokenizer_info['name']}](https://hf.co/{tokenizer_info['url']})",  # Adjusted to Markdown link format
                         'vocab_size': vocab_size,
                         'scand_test': scand_result,
                         'nordic_test': nordic_result,
