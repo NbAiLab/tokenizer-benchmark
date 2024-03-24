@@ -48,7 +48,7 @@ def main():
 
     # Set default output file name if not provided
     if args.output_file is None:
-        args.output_file = f"output_{args.language}.txt"
+        args.output_file = f"wiki_{args.language}.txt"
 
     # Open (and clear) the output file at the beginning
     with open(args.output_file, 'w') as file:

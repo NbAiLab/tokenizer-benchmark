@@ -76,15 +76,19 @@ def main(args):
     # Apply thousand separators and one digit precision formatting
     df['vocab_size'] = df['vocab_size'].apply(lambda x: f"{x:,}")
     language_columns = ['da', 'en', 'is', 'nn', 'no', 'sv']
-    for col in language_columns:
-        if col in df:
-            df[col] = df[col].round(1)
 
     # Define a function to format efficiency values
     def format_efficiency(value):
         if pd.isnull(value):
             return None
         return f"{value:.1f}%"
+
+    def format_float_with_precision(value):
+        """Format float to one decimal place."""
+        if pd.isnull(value):
+            return None
+        return f"{value:.1f}"
+
     # Group by tokenizer and filter for those where all tests are "Success"
     success_tokenizers = df.groupby('tokenizer').filter(lambda x: all(x[['scand_test', 'nordic_test', 'eng_test']].eq('Success').all(axis=1)))
 
@@ -98,12 +102,13 @@ def main(args):
         # Join vocab_size info back to success_summary
         vocab_sizes = success_tokenizers[['tokenizer', 'vocab_size']].drop_duplicates().set_index('tokenizer')
         success_summary = success_summary.join(vocab_sizes, how='left')
-
+        
         # Apply formatting to ensure one decimal place for efficiency columns
         language_columns = [col for col in success_summary.columns if col not in ['tokenizer', 'vocab_size', 'Average Efficiency']]
         for col in language_columns:
-            success_summary[col] = success_summary[col].apply(lambda x: "{:.1f}".format(float(x)) if pd.notnull(x) else x)
-        
+            success_summary[col] = success_summary[col].apply(lambda x: "{:.1f}%".format(float(x)) if pd.notnull(x) else x)
+            
+
         # Format 'Average Efficiency' column
         success_summary['Average Efficiency'] = success_summary['Average Efficiency'].apply(lambda x: "{:.1f}%".format(x) if pd.notnull(x) else x)
 
@@ -118,8 +123,8 @@ def main(args):
         success_summary['Average Efficiency Numeric'] = success_summary['Average Efficiency'].str.replace('%', '').astype(float)
         success_summary = success_summary.sort_values(by='Average Efficiency Numeric', ascending=False)
         success_summary.drop(columns=['Average Efficiency Numeric'], inplace=True)
-
-        print("### Success Summary\n")
+        
+        print("### Nordic Tokenizers\n")
         print(success_summary.to_markdown(index=False))
         print("\n")
 
@@ -142,14 +147,17 @@ def main(args):
         # Ensure 'vocab_size' and 'Average Efficiency' are correctly placed
         cols = ['tokenizer', 'vocab_size', 'scand_test', 'nordic_test', 'eng_test', 'Average Efficiency']
         failed_summary = failed_summary[cols]
+        failed_summary = failed_summary.sort_values(by='Average Efficiency', ascending=False)
 
-        print("### Failure Summary\n")
+
+
+        print("### Not Fully Supported Tokenizers\n")
         print(failed_summary.to_markdown(index=False))
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Tokenize test strings with various tokenizers, compute efficiency for each file in a specified directory, and report test outcomes along with efficiency metrics.")
     parser.add_argument('--input_file', type=str, default='tokenizer_list.jsonl', help='Path to the JSONL file containing tokenizer info. Default is "tokenizer_list.jsonl".')
-    parser.add_argument('--directory', type=str, default='wikipedia_1k', help='Directory containing text files for calculating efficiency and tokens per word. Default is "wikipedia_1k".')
+    parser.add_argument('--directory', type=str, default='wikipedia_100k', help='Directory containing text files for calculating efficiency and tokens per word. Default is "wikipedia_100k".')
 
     args = parser.parse_args()
     main(args)
