@@ -77,7 +77,7 @@ def main(args):
 
     # Apply thousand separators and one digit precision formatting
     df['vocab_size'] = df['vocab_size'].apply(lambda x: f"{x:,}")
-    language_columns = ['da', 'en', 'nn', 'no', 'sv']
+    language_columns = ['en', 'sv', 'da', 'no', 'nn']
 
     # Define a function to format efficiency values
     def format_efficiency(value):

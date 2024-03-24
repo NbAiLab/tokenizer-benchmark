@@ -1,7 +1,7 @@
 # Benchmark for Scandinavian Language Tokenizers
 This repo provides tools for evaluating the efficiency of various tokenizers for Swedish, Danish, Norwegian Bokmål and  Norwegian Nynorsk. For reference, it will also support English for comparison
 
-### Scandinavian Tokenizers
+### Nordic Tokenizers
 
 | tokenizer                                                                               | type          | vocab_size   |   da |   en |   nn |   no |   sv | Average Efficiency   |
 |:----------------------------------------------------------------------------------------|:--------------|:-------------|-----:|-----:|-----:|-----:|-----:|:---------------------|
@@ -31,6 +31,7 @@ This repo provides tools for evaluating the efficiency of various tokenizers for
 | [LayoutLM](https://hf.co/microsoft/layoutlm-base-uncased) | WordPiece     | 30,522       | Failed       | Failed        | OK (lower) | 52.3%                |
 | [XLNet](https://hf.co/xlnet-base-cased)                   | SentencePiece | 32,000       | Failed       | Failed        | Success    | 41.0%                |
 | [T5](https://hf.co/t5-base)                               | SentencePiece | 32,100       | Failed       | Failed        | Success    | 36.9%                |
+
 
 # sample_wikipedia.py
 This script creates a corpus for Wikipedia articles for the defined set of languages. It is a tool for creating the tokenization benchmark. It extracts the first 200 words from each article on a specified date. Articles shorter than 200 words are dropped. In the default mode it samples until it has reached 100k words.
