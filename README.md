@@ -8,7 +8,7 @@ This repo provides tools for evaluating the efficiency of various tokenizers for
 | MBart          | 250,027      |   69 |   69 |   64 |   68 |   67 | 67.9%                |
 | mT5            | 250,100      |   61 |   64 |   60 |   60 |   59 | 61.5%                |
 | Gemma          | 256,000      |   60 |   67 |   57 |   56 |   56 | 59.7%                |
-| [norMistral](ltg/nort5-base)     | 32,768       |   60 |   53 |   60 |   63 |   50 | 57.5%                |
+| [norMistral](https://hf.co/ltg/nort5-base)     | 32,768       |   60 |   53 |   60 |   63 |   50 | 57.5%                |
 | GPT-J          | 50,257       |   49 |   74 |   49 |   48 |   47 | 53.8%                |
 | GPT2           | 50,257       |   49 |   74 |   49 |   48 |   47 | 53.8%                |
 | Roberta        | 50,265       |   49 |   74 |   49 |   48 |   47 | 53.8%                |
