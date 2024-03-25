@@ -6,7 +6,7 @@ Tokenizer efficincy, E, can be defined as the ratio of the total number of words
 
 Tokenizer efficiancy: ![Tokenizer Efficiency Formula](images/efficiency.png) 
 
-Tokenizer efficiency: <img src="images/efficiency.png" alt="Tokenizer Efficiency Formula" style="vertical-align: middle;" />
+Tokenizer efficiency: <img src="images/efficiency.png" alt="Tokenizer Efficiency Formula" style="vertical-align: sub;" />
 
 
 ### Scandinavian Tokenizers
