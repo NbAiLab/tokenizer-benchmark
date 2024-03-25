@@ -119,10 +119,23 @@ def main(args):
         success_summary['Average Efficiency Numeric'] = success_summary['Average Efficiency'].str.replace('%', '').astype(float)
         success_summary = success_summary.sort_values(by='Average Efficiency Numeric', ascending=False)
         success_summary.drop(columns=['Average Efficiency Numeric'], inplace=True)
-       
-        # Sort correctly
-        cols = ['tokenizer', 'type','vocab_size', 'en', 'sv', 'da', 'no', 'nn','Average Efficiency']
-        success_summary = success_summary[cols]
+      
+        # Define the final order and rename columns
+        final_cols_order = ['tokenizer', 'type', 'vocab_size', 'en', 'sv', 'da', 'no', 'nn', 'Average Efficiency']
+        final_cols_rename = {
+            'tokenizer': 'Tokenizer',
+            'type': 'Type',
+            'vocab_size': 'Vocab Size',
+            'en': 'en',
+            'sv': 'sv',
+            'da': 'da',
+            'no': 'no',
+            'nn': 'nn',
+            'Average Efficiency': 'Average'
+        }
+
+        # Reorder and rename columns
+        success_summary = success_summary[final_cols_order].rename(columns=final_cols_rename)
 
         print("### Scandinavian Tokenizers\n")
         print(success_summary.to_markdown(index=False))
@@ -145,12 +158,22 @@ def main(args):
         
         failed_summary = failed_summary.rename(columns={'efficiency': 'Average Efficiency'})
 
-        # Ensure 'vocab_size' and 'Average Efficiency' are correctly placed
-        cols = ['tokenizer', 'type','vocab_size', 'scand_test', 'nordic_test', 'eng_test', 'Average Efficiency']
-        failed_summary = failed_summary[cols]
         failed_summary = failed_summary.sort_values(by='Average Efficiency', ascending=False)
+        
+        # Define the final order and rename columns
+        final_cols_order = ['tokenizer', 'type', 'vocab_size', 'scand_test', 'nordic_test', 'eng_test', 'Average Efficiency']
+        final_cols_rename = {
+            'tokenizer': 'Tokenizer',
+            'type': 'Type',
+            'vocab_size': 'Vocab Size',
+            'scand_test': 'Scand Test',
+            'nordic_test': 'Nordic Test',
+            'eng_test': 'Eng Test',
+            'Average Efficiency': 'Average'
+        }
 
-
+        # Reorder and rename columns
+        failed_summary = failed_summary[final_cols_order].rename(columns=final_cols_rename)
 
         print("### Not Fully Supported Tokenizers\n")
         print(failed_summary.to_markdown(index=False))
