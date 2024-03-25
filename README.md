@@ -1,7 +1,7 @@
 # Benchmark for Scandinavian Language Tokenizers
 This repo provides tools for evaluating the efficiency of various tokenizers for Swedish, Danish, Norwegian Bokmål and  Norwegian Nynorsk. It will also support English for comparison. Here we meassyre the tokenizer efficiency by tokenizing a total of 100k words from the top 500 Wikipedia pages for this language.
 
-Tokenizer efficincy, E, can be defined as the ratio of the total number of words, W, to the total number of tokens, T, multiplied by 100 to express it as a percentage:
+Tokenizer efficincy, 𝐸, can be defined as the ratio of the total number of words, 𝑊, to the total number of tokens, 𝑇, multiplied by 100 to express it as a percentage:
 
 <div align="center">
     <img src="images/efficiency.png" alt="Tokenizer Efficiency Formula" />
