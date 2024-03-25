@@ -1,7 +1,7 @@
 # Benchmark for Scandinavian Language Tokenizers
 This repo provides tools for evaluating the efficiency of various tokenizers for Swedish, Danish, Norwegian Bokmål and  Norwegian Nynorsk. For reference, it will also support English for comparison
 
-### Nordic Tokenizers
+### Scandinavian Tokenizers
 
 | tokenizer                                                                               | type          | vocab_size   |   da |   en |   nn |   no |   sv | Average Efficiency   |
 |:----------------------------------------------------------------------------------------|:--------------|:-------------|-----:|-----:|-----:|-----:|-----:|:---------------------|

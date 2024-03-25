@@ -119,8 +119,12 @@ def main(args):
         success_summary['Average Efficiency Numeric'] = success_summary['Average Efficiency'].str.replace('%', '').astype(float)
         success_summary = success_summary.sort_values(by='Average Efficiency Numeric', ascending=False)
         success_summary.drop(columns=['Average Efficiency Numeric'], inplace=True)
-        
-        print("### Nordic Tokenizers\n")
+       
+        # Sort correctly
+        cols = ['tokenizer', 'type','vocab_size', 'en', 'sv', 'da', 'no', 'nn','Average Efficiency']
+        success_summary = success_summary[cols]
+
+        print("### Scandinavian Tokenizers\n")
         print(success_summary.to_markdown(index=False))
         print("\n")
 
