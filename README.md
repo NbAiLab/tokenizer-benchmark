@@ -3,10 +3,6 @@ This repo provides tools for evaluating the efficiency of various tokenizers for
 
 Tokenizer efficincy, E, can be defined as the ratio of the total number of words to the total number of tokens, multiplied by 100 to express it as a percentage:
 
-
-Tokenizer efficiancy: ![Tokenizer Efficiency Formula](images/efficiency.png) 
-
-Tokenizer efficiency: <img src="images/efficiency.png" alt="Tokenizer Efficiency Formula" style="vertical-align: -5px;" />
 <div align="center">
     <img src="images/efficiency.png" alt="Tokenizer Efficiency Formula" />
 </div>
