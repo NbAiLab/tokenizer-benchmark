@@ -23,4 +23,10 @@
 {"name": "Saattrupdan-no", "type": "WordPiece", "url": "saattrupdan/tokenizer-no"}
 {"name": "Saattrupdan-sv", "type": "WordPiece", "url": "saattrupdan/tokenizer-sv"}
 {"name": "Saattrupdan-da", "type": "WordPiece", "url": "saattrupdan/tokenizer-da"}
+{"name": "NorBert", "type": "WordPiece", "url": "ltg/norbert3-large"}
+{"name": "AISweedenRoberta", "type": "BPE", "url": "AI-Sweden-Models/roberta-large-1160k"}
+{"name": "BinericGPT", "type": "WordPiece", "url": "bineric/NorskGPT-Mistral-7b"}
+{"name": "MabeckMistral", "type": "WordPiece", "url": "Mabeck/Heidrun-Mistral-7B-chat"}
+
+
 
