@@ -104,24 +104,33 @@ def main(args):
         for col in language_columns:
             success_summary[col] = success_summary[col].apply(lambda x: f"{int(float(x))}" if pd.notnull(x) else x)
 
-
         # Format 'Average Efficiency' column
         success_summary['Average Efficiency'] = success_summary['Average Efficiency'].apply(lambda x: "{:.1f}%".format(x) if pd.notnull(x) else x)
 
         # Reset index to make 'tokenizer' a column
         success_summary.reset_index(inplace=True)
 
-        # Reorder columns to include 'vocab_size' as the second column and 'Average Efficiency' at the end
-        cols = ['tokenizer', 'type', 'vocab_size'] + [col for col in success_summary.columns if col not in ['tokenizer', 'type', 'vocab_size', 'Average Efficiency']] + ['Average Efficiency']
+        # Join 'tokens_per_word' info back to success_summary
+        additional_info = success_tokenizers[['tokenizer', 'tokens_per_word']].groupby('tokenizer').mean().reset_index()
+        success_summary = success_summary.merge(additional_info, on='tokenizer', how='left')
+
+        # Format 'tokens_per_word' column
+        success_summary['tokens_per_word'] = success_summary['tokens_per_word'].apply(lambda x: "{:.2f}".format(x) if pd.notnull(x) else x)
+
+        # Rename column
+        success_summary.rename(columns={'tokens_per_word': 'Avg Tokens per Word'}, inplace=True)
+
+        # Reorder columns to include 'Avg Tokens per Word' at the end
+        cols = ['tokenizer', 'type', 'vocab_size'] + [col for col in success_summary.columns if col not in ['tokenizer', 'type', 'vocab_size', 'Average Efficiency', 'Avg Tokens per Word']] + ['Average Efficiency', 'Avg Tokens per Word']
         success_summary = success_summary[cols]
 
         # Sorting by 'Average Efficiency' after converting to numeric for sorting
         success_summary['Average Efficiency Numeric'] = success_summary['Average Efficiency'].str.replace('%', '').astype(float)
         success_summary = success_summary.sort_values(by='Average Efficiency Numeric', ascending=False)
         success_summary.drop(columns=['Average Efficiency Numeric'], inplace=True)
-      
+
         # Define the final order and rename columns
-        final_cols_order = ['tokenizer', 'type', 'vocab_size', 'en', 'sv', 'da', 'no', 'nn', 'Average Efficiency']
+        final_cols_order = ['tokenizer', 'type', 'vocab_size', 'en', 'sv', 'da', 'no', 'nn', 'Average Efficiency', 'Avg Tokens per Word']
         final_cols_rename = {
             'tokenizer': 'Tokenizer',
             'type': 'Type',
@@ -131,7 +140,8 @@ def main(args):
             'da': 'da',
             'no': 'no',
             'nn': 'nn',
-            'Average Efficiency': 'Average'
+            'Average Efficiency': 'Average',
+            'Avg Tokens per Word': 'Tokens/Word'
         }
 
         # Reorder and rename columns
@@ -147,21 +157,28 @@ def main(args):
         failed_summary = failed_tokenizers.groupby('tokenizer').agg({
             'type': 'first',
             'vocab_size': 'first',
-            'efficiency': 'first', 
-            'scand_test': 'first', 
-            'nordic_test': 'first', 
-            'eng_test': 'first'
+            'efficiency': 'first',
+            'scand_test': 'first',
+            'nordic_test': 'first',
+            'eng_test': 'first',
+            'tokens_per_word': 'mean'
         }).reset_index()
 
         # Format efficiency as a percentage string
         failed_summary['efficiency'] = failed_summary['efficiency'].apply(format_efficiency)
-        
+
         failed_summary = failed_summary.rename(columns={'efficiency': 'Average Efficiency'})
 
+        # Format 'tokens_per_word' column
+        failed_summary['tokens_per_word'] = failed_summary['tokens_per_word'].apply(lambda x: "{:.2f}".format(x) if pd.notnull(x) else x)
+
+        # Rename column
+        failed_summary.rename(columns={'tokens_per_word': 'Avg Tokens per Word'}, inplace=True)
+
         failed_summary = failed_summary.sort_values(by='Average Efficiency', ascending=False)
-        
+
         # Define the final order and rename columns
-        final_cols_order = ['tokenizer', 'type', 'vocab_size', 'scand_test', 'nordic_test', 'eng_test', 'Average Efficiency']
+        final_cols_order = ['tokenizer', 'type', 'vocab_size', 'scand_test', 'nordic_test', 'eng_test', 'Average Efficiency', 'Avg Tokens per Word']
         final_cols_rename = {
             'tokenizer': 'Tokenizer',
             'type': 'Type',
@@ -169,14 +186,15 @@ def main(args):
             'scand_test': 'Scand Test',
             'nordic_test': 'Nordic Test',
             'eng_test': 'Eng Test',
-            'Average Efficiency': 'Average'
+            'Average Efficiency': 'Average',
+            'Avg Tokens per Word': 'Tokens/Word'
         }
 
-        # Reorder and rename columns
-        failed_summary = failed_summary[final_cols_order].rename(columns=final_cols_rename)
+    # Reorder and rename columns
+    failed_summary = failed_summary[final_cols_order].rename(columns=final_cols_rename)
 
-        print("### Not Fully Supported Tokenizers\n")
-        print(failed_summary.to_markdown(index=False))
+    print("### Not Fully Supported Tokenizers\n")
+    print(failed_summary.to_markdown(index=False))
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Tokenize test strings with various tokenizers, compute efficiency for each file in a specified directory, and report test outcomes along with efficiency metrics.")
