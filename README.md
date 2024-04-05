@@ -11,14 +11,15 @@ Tokenizer efficincy, 𝐸, can be defined as the ratio of the total number of wo
 
 | Tokenizer                                                                               | Type          | Vocab Size   |   en |   sv |   da |   no |   nn | Average   |
 |:----------------------------------------------------------------------------------------|:--------------|:-------------|-----:|-----:|-----:|-----:|-----:|:----------|
+| [Viking](https://hf.co/LumiOpen/Viking-7B)                                              | BPE           | 131,072      |   76 |   68 |   70 |   69 |   69 | 70.9%     |
 | [MBart](https://hf.co/facebook/mbart-large-en-ro)                                       | SentencePiece | 250,027      |   74 |   65 |   67 |   67 |   63 | 68.0%     |
 | [Gemma](https://hf.co/google/gemma-7b)                                                  | SentencePiece | 256,000      |   81 |   60 |   61 |   61 |   60 | 65.0%     |
 | [norMistral](https://hf.co/norallm/normistral-7b-scratch)                               | BPE           | 32,768       |   62 |   52 |   62 |   70 |   66 | 62.9%     |
 | [mT5](https://hf.co/google/mt5-small)                                                   | SentencePiece | 250,100      |   69 |   58 |   60 |   60 |   58 | 61.7%     |
+| [NB-GPT-J](https://hf.co/NbAiLab/nb-gpt-j-6B-v2)                                        | BPE           | 50,257       |   89 |   46 |   49 |   50 |   48 | 56.8%     |
 | [GPT-J](https://hf.co/EleutherAI/gpt-j-6b)                                              | BPE           | 50,257       |   89 |   46 |   49 |   50 |   48 | 56.8%     |
 | [GPT2](https://hf.co/gpt2)                                                              | BPE           | 50,257       |   89 |   46 |   49 |   50 |   48 | 56.8%     |
 | [Roberta](https://hf.co/roberta-base)                                                   | BPE           | 50,265       |   89 |   46 |   49 |   50 |   48 | 56.8%     |
-| [NB-GPT-J](https://hf.co/NbAiLab/nb-gpt-j-6B-v2)                                        | BPE           | 50,257       |   89 |   46 |   49 |   50 |   48 | 56.8%     |
 | [Llama](https://hf.co/meta-llama/Llama-2-7b-hf)                                         | BPE           | 32,000       |   71 |   50 |   49 |   49 |   49 | 54.1%     |
 | [Mistral](https://hf.co/mistralai/Mistral-7B-Instruct-v0.2)                             | BPE           | 32,000       |   72 |   48 |   48 |   48 |   48 | 53.3%     |
 | [KBLab-Megatron](https://hf.co/KBLab/megatron.bert-large.unigram-64k-pretok.500k-steps) | WordPiece     | 64,005       |   52 |   61 |   45 |   45 |   45 | 50.1%     |
@@ -37,7 +38,6 @@ Tokenizer efficincy, 𝐸, can be defined as the ratio of the total number of wo
 | [LayoutLM](https://hf.co/microsoft/layoutlm-base-uncased) | WordPiece     | 30,522       | Failed       | Failed        | OK (lower) | 52.3%     |
 | [XLNet](https://hf.co/xlnet-base-cased)                   | SentencePiece | 32,000       | Failed       | Failed        | Success    | 41.0%     |
 | [T5](https://hf.co/t5-base)                               | SentencePiece | 32,100       | Failed       | Failed        | Success    | 36.9%     |
-
 
 # sample_wikipedia.py
 This script creates a corpus for Wikipedia articles for the defined set of languages. It is a tool for creating the tokenization benchmark. It extracts the first 200 words from each article on a specified date. Articles shorter than 200 words are dropped. In the default mode it samples until it has reached 100k words.

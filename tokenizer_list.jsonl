@@ -18,3 +18,5 @@
 {"name": "norT5", "type": "SentencePiece", "url": "ltg/nort5-base"}
 {"name": "norMistral", "type": "BPE", "url": "norallm/normistral-7b-scratch"}
 {"name": "NB-GPT-J", "type": "BPE", "url": "NbAiLab/nb-gpt-j-6B-v2"}
+{"name": "Viking", "type": "BPE", "url": "LumiOpen/Viking-7B"}
+
