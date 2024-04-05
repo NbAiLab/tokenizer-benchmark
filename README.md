@@ -9,7 +9,7 @@ Tokenizer efficincy, 𝐸, can be defined as the ratio of the total number of wo
 
 ### Scandinavian Tokenizers
 
-| Tokenizer                                                                               | Type          | Vocab Size   |   en |   sv |   da |   no |   nn | Average   |   Tokens/Word |
+| Tokenizer                                                                               | Type          | Vocab Size   |   en |   sv |   da |   no |   nn | Average   |   Tokens/ Word |
 |:----------------------------------------------------------------------------------------|:--------------|:-------------|-----:|-----:|-----:|-----:|-----:|:----------|--------------:|
 | [AISweedenRoberta](https://hf.co/AI-Sweden-Models/roberta-large-1160k)                  | BPE           | 50,265       |   68 |   75 |   77 |   75 |   67 | 72.8%     |          1.38 |
 | [Viking](https://hf.co/LumiOpen/Viking-7B)                                              | BPE           | 131,072      |   76 |   68 |   70 |   69 |   69 | 70.9%     |          1.41 |
@@ -30,7 +30,7 @@ Tokenizer efficincy, 𝐸, can be defined as the ratio of the total number of wo
 
 ### Not Fully Supported Tokenizers
 
-| Tokenizer                                                       | Type          | Vocab Size   | Scand Test   | Nordic Test   | Eng Test   | Average   |   Tokens/Word |
+| Tokenizer                                                       | Type          | Vocab Size   | Scand Test   | Nordic Test   | Eng Test   | Average   |   Tokens/ Word |
 |:----------------------------------------------------------------|:--------------|:-------------|:-------------|:--------------|:-----------|:----------|--------------:|
 | [NB-BERT](https://hf.co/NbAiLab/nb-bert-large)                  | WordPiece     | 50,000       | OK (lower)   | Failed        | OK (lower) | 86.0%     |          1.3  |
 | [NorBert](https://hf.co/ltg/norbert3-large)                     | WordPiece     | 50,000       | Failed       | Failed        | Failed     | 82.5%     |          1.4  |
