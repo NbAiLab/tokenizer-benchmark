@@ -19,4 +19,8 @@
 {"name": "norMistral", "type": "BPE", "url": "norallm/normistral-7b-scratch"}
 {"name": "NB-GPT-J", "type": "BPE", "url": "NbAiLab/nb-gpt-j-6B-v2"}
 {"name": "Viking", "type": "BPE", "url": "LumiOpen/Viking-7B"}
+{"name": "Saattrupdan-scand", "type": "WordPiece", "url": "saattrupdan/tokenizer-scandi"}
+{"name": "Saattrupdan-no", "type": "WordPiece", "url": "saattrupdan/tokenizer-no"}
+{"name": "Saattrupdan-sv", "type": "WordPiece", "url": "saattrupdan/tokenizer-sv"}
+{"name": "Saattrupdan-da", "type": "WordPiece", "url": "saattrupdan/tokenizer-da"}
 

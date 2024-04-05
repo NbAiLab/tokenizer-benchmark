@@ -27,17 +27,20 @@ Tokenizer efficincy, 𝐸, can be defined as the ratio of the total number of wo
 
 ### Not Fully Supported Tokenizers
 
-| Tokenizer                                                 | Type          | Vocab Size   | Scand Test   | Nordic Test   | Eng Test   | Average   |   Tokens/Word |
-|:----------------------------------------------------------|:--------------|:-------------|:-------------|:--------------|:-----------|:----------|--------------:|
-| [NB-BERT](https://hf.co/NbAiLab/nb-bert-large)            | WordPiece     | 50,000       | OK (lower)   | Failed        | OK (lower) | 86.0%     |          1.3  |
-| [norT5](https://hf.co/ltg/nort5-base)                     | SentencePiece | 50,000       | Failed       | Failed        | Failed     | 82.5%     |          1.4  |
-| [mBERT](https://hf.co/bert-base-multilingual-uncased)     | WordPiece     | 105,879      | Failed       | Failed        | OK (lower) | 72.8%     |          1.34 |
-| [KBLab-BERT](https://hf.co/KBLab/bert-base-swedish-cased) | WordPiece     | 50,325       | Failed       | Failed        | Success    | 63.2%     |          1.51 |
-| [Bert](https://hf.co/bert-base-uncased)                   | WordPiece     | 30,522       | Failed       | Failed        | OK (lower) | 52.3%     |          1.74 |
-| [DistilBert](https://hf.co/distilbert-base-uncased)       | WordPiece     | 30,522       | Failed       | Failed        | OK (lower) | 52.3%     |          1.74 |
-| [LayoutLM](https://hf.co/microsoft/layoutlm-base-uncased) | WordPiece     | 30,522       | Failed       | Failed        | OK (lower) | 52.3%     |          1.74 |
-| [XLNet](https://hf.co/xlnet-base-cased)                   | SentencePiece | 32,000       | Failed       | Failed        | Success    | 41.0%     |          2.21 |
-| [T5](https://hf.co/t5-base)                               | SentencePiece | 32,100       | Failed       | Failed        | Success    | 36.9%     |          2.46 |
+| Tokenizer                                                       | Type          | Vocab Size   | Scand Test   | Nordic Test   | Eng Test   | Average   |   Tokens/Word |
+|:----------------------------------------------------------------|:--------------|:-------------|:-------------|:--------------|:-----------|:----------|--------------:|
+| [NB-BERT](https://hf.co/NbAiLab/nb-bert-large)                  | WordPiece     | 50,000       | OK (lower)   | Failed        | OK (lower) | 86.0%     |          1.3  |
+| [norT5](https://hf.co/ltg/nort5-base)                           | SentencePiece | 50,000       | Failed       | Failed        | Failed     | 82.5%     |          1.4  |
+| [mBERT](https://hf.co/bert-base-multilingual-uncased)           | WordPiece     | 105,879      | Failed       | Failed        | OK (lower) | 72.8%     |          1.34 |
+| [KBLab-BERT](https://hf.co/KBLab/bert-base-swedish-cased)       | WordPiece     | 50,325       | Failed       | Failed        | Success    | 63.2%     |          1.51 |
+| [Saattrupdan-no](https://hf.co/saattrupdan/tokenizer-no)        | Unigram     | 30,000       | OK (lower)   | OK (lower)    | OK (lower) | 59.2%     |          1.94 |
+| [Saattrupdan-scand](https://hf.co/saattrupdan/tokenizer-scandi) | Unigram     | 100,000      | OK (lower)   | OK (lower)    | OK (lower) | 56.3%     |          1.84 |
+| [Bert](https://hf.co/bert-base-uncased)                         | WordPiece     | 30,522       | Failed       | Failed        | OK (lower) | 52.3%     |          1.74 |
+| [DistilBert](https://hf.co/distilbert-base-uncased)             | WordPiece     | 30,522       | Failed       | Failed        | OK (lower) | 52.3%     |          1.74 |
+| [LayoutLM](https://hf.co/microsoft/layoutlm-base-uncased)       | WordPiece     | 30,522       | Failed       | Failed        | OK (lower) | 52.3%     |          1.74 |
+| [XLNet](https://hf.co/xlnet-base-cased)                         | SentencePiece | 32,000       | Failed       | Failed        | Success    | 41.0%     |          2.21 |
+| [T5](https://hf.co/t5-base)                                     | SentencePiece | 32,100       | Failed       | Failed        | Success    | 36.9%     |          2.46 |
+
 
 # sample_wikipedia.py
 This script creates a corpus for Wikipedia articles for the defined set of languages. It is a tool for creating the tokenization benchmark. It extracts the first 200 words from each article on a specified date. Articles shorter than 200 words are dropped. In the default mode it samples until it has reached 100k words.
