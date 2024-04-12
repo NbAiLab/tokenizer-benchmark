@@ -6,10 +6,9 @@ Tokenizer efficincy, 𝐸, can be defined as the ratio of the total number of wo
 <div align="center">
     <img src="images/efficiency.png" alt="Tokenizer Efficiency Formula" />
 </div>
-
 ### Scandinavian Tokenizers
 
-| Tokenizer                                                                               | Type          | Vocab Size   |   en |   sv |   da |   no |   nn | Average   |   Tokens/ Word |
+| Tokenizer                                                                               | Type          | Vocab Size   |   en |   sv |   da |   no |   nn | Average   |   Tokens/Word |
 |:----------------------------------------------------------------------------------------|:--------------|:-------------|-----:|-----:|-----:|-----:|-----:|:----------|--------------:|
 | [AISweedenRoberta](https://hf.co/AI-Sweden-Models/roberta-large-1160k)                  | BPE           | 50,265       |   68 |   75 |   77 |   75 |   67 | 72.8%     |          1.38 |
 | [Viking](https://hf.co/LumiOpen/Viking-7B)                                              | BPE           | 131,072      |   76 |   68 |   70 |   69 |   69 | 70.9%     |          1.41 |
@@ -30,12 +29,13 @@ Tokenizer efficincy, 𝐸, can be defined as the ratio of the total number of wo
 
 ### Not Fully Supported Tokenizers
 
-| Tokenizer                                                       | Type          | Vocab Size   | Scand Test   | Nordic Test   | Eng Test   | Average   |   Tokens/ Word |
+| Tokenizer                                                       | Type          | Vocab Size   | Scand Test   | Nordic Test   | Eng Test   | Average   |   Tokens/Word |
 |:----------------------------------------------------------------|:--------------|:-------------|:-------------|:--------------|:-----------|:----------|--------------:|
 | [NB-BERT](https://hf.co/NbAiLab/nb-bert-large)                  | WordPiece     | 50,000       | OK (lower)   | Failed        | OK (lower) | 86.0%     |          1.3  |
 | [NorBert](https://hf.co/ltg/norbert3-large)                     | WordPiece     | 50,000       | Failed       | Failed        | Failed     | 82.5%     |          1.4  |
 | [norT5](https://hf.co/ltg/nort5-base)                           | SentencePiece | 50,000       | Failed       | Failed        | Failed     | 82.5%     |          1.4  |
 | [mBERT](https://hf.co/bert-base-multilingual-uncased)           | WordPiece     | 105,879      | Failed       | Failed        | OK (lower) | 72.8%     |          1.34 |
+| [ScandEng](https://hf.co/versae/scandinavian-tokenizer)         | BPE           | 32,768       | Success      | Failed        | Success    | 68.0%     |          1.52 |
 | [KBLab-BERT](https://hf.co/KBLab/bert-base-swedish-cased)       | WordPiece     | 50,325       | Failed       | Failed        | Success    | 63.2%     |          1.51 |
 | [Saattrupdan-no](https://hf.co/saattrupdan/tokenizer-no)        | WordPiece     | 30,000       | OK (lower)   | OK (lower)    | OK (lower) | 59.2%     |          1.94 |
 | [Saattrupdan-scand](https://hf.co/saattrupdan/tokenizer-scandi) | WordPiece     | 100,000      | OK (lower)   | OK (lower)    | OK (lower) | 56.3%     |          1.84 |

@@ -27,6 +27,7 @@
 {"name": "AISweedenRoberta", "type": "BPE", "url": "AI-Sweden-Models/roberta-large-1160k"}
 {"name": "BinericGPT", "type": "WordPiece", "url": "bineric/NorskGPT-Mistral-7b"}
 {"name": "MabeckMistral", "type": "WordPiece", "url": "Mabeck/Heidrun-Mistral-7B-chat"}
+{"name": "ScandEng", "type": "BPE", "url": "versae/scandinavian-tokenizer"}
 
 
 
