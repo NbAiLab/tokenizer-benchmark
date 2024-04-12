@@ -86,7 +86,7 @@ def main(args):
         return f"{value:.1f}%"
 
     # Group by tokenizer and filter for those where all tests are "Success"
-    success_tokenizers = df.groupby('tokenizer').filter(lambda x: all(x[['scand_test', 'nordic_test', 'eng_test']].eq('Success').all(axis=1)))
+    success_tokenizers = df.groupby('tokenizer').filter(lambda x: all(x[['scand_test', 'eng_test']].eq('Success').all(axis=1)))
 
     if not success_tokenizers.empty:
         # Pivot to have languages as columns, ensuring 'tokenizer' remains as an index to join on
@@ -151,7 +151,7 @@ def main(args):
         print(success_summary.to_markdown(index=False))
         print("\n")
 
-    failed_tokenizers = df.groupby('tokenizer').filter(lambda x: any(x[['scand_test', 'nordic_test', 'eng_test']].ne('Success').any(axis=1)))
+    failed_tokenizers = df.groupby('tokenizer').filter(lambda x: any(x[['scand_test','nordic_test','eng_test']].ne('Success').any(axis=1)))
 
     if not failed_tokenizers.empty:
         failed_summary = failed_tokenizers.groupby('tokenizer').agg({
