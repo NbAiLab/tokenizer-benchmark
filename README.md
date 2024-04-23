@@ -6,6 +6,7 @@ Tokenizer efficincy, 𝐸, can be defined as the ratio of the total number of wo
 <div align="center">
     <img src="images/efficiency.png" alt="Tokenizer Efficiency Formula" />
 </div>
+
 ### Scandinavian Tokenizers
 
 | Tokenizer                                                                               | Type          | Vocab Size   |   en |   sv |   da |   no |   nn | Average   |   Tokens/Word |
@@ -17,6 +18,7 @@ Tokenizer efficincy, 𝐸, can be defined as the ratio of the total number of wo
 | [Gemma](https://hf.co/google/gemma-7b)                                                  | SentencePiece | 256,000      |   81 |   60 |   61 |   61 |   60 | 65.0%     |          1.56 |
 | [norMistral](https://hf.co/norallm/normistral-7b-scratch)                               | BPE           | 32,768       |   62 |   52 |   62 |   70 |   66 | 62.9%     |          1.61 |
 | [mT5](https://hf.co/google/mt5-small)                                                   | SentencePiece | 250,100      |   69 |   58 |   60 |   60 |   58 | 61.7%     |          1.63 |
+| [Llama3](https://hf.co/meta-llama/Meta-Llama-3-8B)                                      | BPE           | 128,000      |   84 |   53 |   55 |   55 |   54 | 60.5%     |          1.7  |
 | [GPT-J](https://hf.co/EleutherAI/gpt-j-6b)                                              | BPE           | 50,257       |   89 |   46 |   49 |   50 |   48 | 56.8%     |          1.87 |
 | [NB-GPT-J](https://hf.co/NbAiLab/nb-gpt-j-6B-v2)                                        | BPE           | 50,257       |   89 |   46 |   49 |   50 |   48 | 56.8%     |          1.87 |
 | [Roberta](https://hf.co/roberta-base)                                                   | BPE           | 50,265       |   89 |   46 |   49 |   50 |   48 | 56.8%     |          1.87 |
