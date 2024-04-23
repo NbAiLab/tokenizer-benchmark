@@ -28,6 +28,7 @@
 {"name": "BinericGPT", "type": "WordPiece", "url": "bineric/NorskGPT-Mistral-7b"}
 {"name": "MabeckMistral", "type": "WordPiece", "url": "Mabeck/Heidrun-Mistral-7B-chat"}
 {"name": "ScandEng", "type": "BPE", "url": "versae/scandinavian-tokenizer"}
+{"name": "Llama3", "type": "BPE", "url": "meta-llama/Meta-Llama-3-8B"}
 
 
 
